@@ -1,5 +1,5 @@
 'use strict';
-const Page = require('../pages/page');
+const Page = require('./page');
 class LandPage extends Page {
     get url () { return '/'; }
 }

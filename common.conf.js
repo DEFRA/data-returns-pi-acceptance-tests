@@ -14,26 +14,32 @@ const winstonLogLevel = process.env.WINSTON_LOG_LEVEL || 'info';
 const logDir = path.resolve(__dirname, 'logs');
 fs.ensureDirSync(logDir);
 
-// Create an array containing an explicit list of step files. Cucumber is rejecting a path
-// at this time.
+/*
+ * Create an array containing an explicit list of step files. Cucumber is rejecting a path
+ * at this time.
+ */
 
-// const findStepFiles = () => {
-//     try {
-//         return klawSync('./features/step_definitions',
-//             {
-//                 filter: item => path.extname(item.path) === '.js',
-//                 nodir: true
-//             }
-//         ).map(p => p.path);
-//     } catch (err) {
-//         throw new Error('Cannot find step definitions');
-//     }
-// };
+/*
+ * const findStepFiles = () => {
+ *     try {
+ *         return klawSync('./features/step_definitions',
+ *             {
+ *                 filter: item => path.extname(item.path) === '.js',
+ *                 nodir: true
+ *             }
+ *         ).map(p => p.path);
+ *     } catch (err) {
+ *         throw new Error('Cannot find step definitions');
+ *     }
+ * };
+ */
 
 exports.config = {
-    // ==================
-    // Specify Test Files
-    // ==================
+    /*
+     * ==================
+     * Specify Test Files
+     * ==================
+     */
     specs: [
         './features/**/*.feature'
     ],
@@ -41,11 +47,13 @@ exports.config = {
         // 'path/to/excluded/files'
     ],
 
-    //
-    // ===================
-    // Test Configurations
-    // ===================
-    // By default WebdriverIO commands are executed in a synchronous way using the wdio-sync package.
+    /*
+     *
+     * ===================
+     * Test Configurations
+     * ===================
+     * By default WebdriverIO commands are executed in a synchronous way using the wdio-sync package.
+     */
     sync: true,
     // Selenium logging verbosity: silent | verbose | command | data | result | error
     logLevel: seleniumLogLevel,
@@ -79,8 +87,10 @@ exports.config = {
         scriptTimeout: 30000
     },
 
-    // Default timeout in milliseconds for request
-    // if Selenium Grid doesn't send response
+    /*
+     * Default timeout in milliseconds for request
+     * if Selenium Grid doesn't send response
+     */
     connectionRetryTimeout: 90000,
     // Default request retries count
     connectionRetryCount: 3,
@@ -96,7 +106,7 @@ exports.config = {
 
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
-        require: ['./features/step_definitions'], // <string[]> (file/dir) require files before executing features
+        require: require('./support/lib/utilities').findStepFiles('./features/step-definitions'), // <string[]> (file/dir) require files before executing features
         // require: findStepFiles(),
         backtrace: true, // <boolean> show full backtrace for errors
         compiler: [], // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -113,24 +123,28 @@ exports.config = {
         ignoreUndefinedDefinitions: false // <boolean> Enable this config to treat undefined definitions as warnings.
     },
 
-    // =====
-    // Hooks
-    // =====
-    // WebdriverIO provides several hooks you can use to interfere with the test process in order to enhance
-    // it and to build services around it. You can either apply a single function or an array of
-    // methods to it. If one of them returns with a promise, WebdriverIO will wait until that promise got
-    // resolved to continue.
-    //
-    // Gets executed once before all workers get launched.
+    /*
+     * =====
+     * Hooks
+     * =====
+     * WebdriverIO provides several hooks you can use to interfere with the test process in order to enhance
+     * it and to build services around it. You can either apply a single function or an array of
+     * methods to it. If one of them returns with a promise, WebdriverIO will wait until that promise got
+     * resolved to continue.
+     *
+     * Gets executed once before all workers get launched.
+     */
     onPrepare: function (config, capabilities) {
         const prettyConfig = util.inspect(config, {depth: null, colors: true});
         const prettyCapabilities = util.inspect(capabilities, {depth: null, colors: true});
         winston.info(`Running tests with configuration: \nCapabilities: ${prettyCapabilities}}\n\nConfiguration:${prettyConfig}`);
     },
 
-    //
-    // Gets executed before test execution begins. At this point you can access all global
-    // variables, such as `browser`. It is the perfect place to define custom commands.
+    /*
+     *
+     * Gets executed before test execution begins. At this point you can access all global
+     * variables, such as `browser`. It is the perfect place to define custom commands.
+     */
     before: function (capabilities, specs) {
         console.log('before hook' + JSON.stringify(specs));
         // Setup the Chai assertion framework
@@ -193,51 +207,55 @@ exports.config = {
             ]
         });
     },
-    //
-    // Hook that gets executed before the suite starts
+    /*
+     *
+     * Hook that gets executed before the suite starts
+     */
     beforeSuite: function (suite) {
         console.log(JSON.stringify(suite));
     },
-    //
-    // Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
-    // beforeEach in Mocha)
-    // beforeHook: function () {
-    // },
-    //
-    // Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
-    // afterEach in Mocha)
-    // afterHook: function () {
-    // },
-    //
-    // Function to be executed before a test (in Mocha/Jasmine) or a step (in Cucumber) starts.
-    // beforeTest: function (test) {
-    // },
-    //
-    // Runs before a WebdriverIO command gets executed.
-    // beforeCommand: function (commandName, args) {
-    // },
-    //
-    // Runs after a WebdriverIO command gets executed
-    // afterCommand: function (commandName, args, result, error) {
-    // },
-    //
-    // Function to be executed after a test (in Mocha/Jasmine) or a step (in Cucumber) starts.
-    // afterTest: function (test) {
-    // },
-    //
-    // Hook that gets executed after the suite has ended
-    // afterSuite: function (suite) {
-    // },
-    //
-    // Gets executed after all tests are done. You still have access to all global variables from
-    // the test.
-    // after: function (result, capabilities, specs) {
-    // },
-    //
-    // Gets executed after all workers got shut down and the process is about to exit. It is not
-    // possible to defer the end of the process using a promise.
-    // onComplete: function(exitCode) {
-    // }
+    /*
+     *
+     * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
+     * beforeEach in Mocha)
+     * beforeHook: function () {
+     * },
+     *
+     * Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
+     * afterEach in Mocha)
+     * afterHook: function () {
+     * },
+     *
+     * Function to be executed before a test (in Mocha/Jasmine) or a step (in Cucumber) starts.
+     * beforeTest: function (test) {
+     * },
+     *
+     * Runs before a WebdriverIO command gets executed.
+     * beforeCommand: function (commandName, args) {
+     * },
+     *
+     * Runs after a WebdriverIO command gets executed
+     * afterCommand: function (commandName, args, result, error) {
+     * },
+     *
+     * Function to be executed after a test (in Mocha/Jasmine) or a step (in Cucumber) starts.
+     * afterTest: function (test) {
+     * },
+     *
+     * Hook that gets executed after the suite has ended
+     * afterSuite: function (suite) {
+     * },
+     *
+     * Gets executed after all tests are done. You still have access to all global variables from
+     * the test.
+     * after: function (result, capabilities, specs) {
+     * },
+     *
+     * Gets executed after all workers got shut down and the process is about to exit. It is not
+     * possible to defer the end of the process using a promise.
+     * onComplete: function(exitCode) {
+     * }
+     */
 
     // Cucumber specific hooks
     beforeFeature: function (feature) {
@@ -246,12 +264,14 @@ exports.config = {
     beforeScenario: function (scenario) {
         winston.info(`Running scenario: ${scenario.getName()}`);
     }
-    // beforeStep: function (step) {
-    // },
-    // afterStep: function (stepResult) {
-    // },
-    // afterScenario: function (scenario) {
-    // },
-    // afterFeature: function (feature) {
-    // }
+    /*
+     * beforeStep: function (step) {
+     * },
+     * afterStep: function (stepResult) {
+     * },
+     * afterScenario: function (scenario) {
+     * },
+     * afterFeature: function (feature) {
+     * }
+     */
 };
