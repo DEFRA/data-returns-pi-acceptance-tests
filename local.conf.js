@@ -1,6 +1,6 @@
 'use strict';
 const lodash = require('lodash');
-const commonConfig = require('./wdio.conf').config;
+const commonConfig = require('./common.conf').config;
 
 const localConfig = {
     /*
