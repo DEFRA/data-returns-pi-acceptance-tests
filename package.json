@@ -1,0 +1,40 @@
+{
+  "name": "data-returns-pi-acceptance-tests",
+  "version": "1.0.0",
+  "description": "The automated acceptance tests for the PI submission system",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run-script lint && ./node_modules/.bin/wdio ./local.conf.js",
+    "lint": "./node_modules/eslint/bin/eslint.js *.js ./features/step_definitions/** ./features/support/lib/** ./features/support/pages/**"
+  },
+  "author": "Graham Willis",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "4.1.2",
+    "cucumber": "3.1.0",
+    "fs-extra": "4.0.2",
+    "lodash": "4.17.4",
+    "path": "0.12.7",
+    "request": "2.83.0",
+    "klaw-sync": "3.0.2",
+    "wdio-browserstack-service": "0.1.13",
+    "wdio-firefox-profile-service": "0.1.0",
+    "wdio-junit-reporter": "0.3.1",
+    "wdio-spec-reporter": "0.1.2",
+    "webdriverio": "4.8.0",
+    "winston": "2.4.0"
+  },
+  "devDependencies": {
+    "eslint": "4.10.0",
+    "eslint-config-standard": "10.2.1",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-node": "5.2.1",
+    "eslint-plugin-promise": "3.6.0",
+    "eslint-plugin-standard": "3.0.1",
+    "wdio-cucumber-framework": "1.0.2",
+    "wdio-selenium-standalone-service": "0.0.9"
+  },
+  "author": "Druid Wood Limited / Sam Gardner-Dell / Howard Davis",
+  "license": "ISC",
+  "repository": "https://github.com/DEFRA/data-returns-pi-acceptance-tests.git"
+}
