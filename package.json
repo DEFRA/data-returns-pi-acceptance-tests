@@ -7,8 +7,6 @@
     "test": "npm run-script lint && ./node_modules/.bin/wdio ./local.conf.js",
     "lint": "./node_modules/eslint/bin/eslint.js *.js ./features/step_definitions/** ./features/support/lib/** ./features/support/pages/**"
   },
-  "author": "Graham Willis",
-  "license": "ISC",
   "dependencies": {
     "chai": "4.1.2",
     "cucumber": "3.1.0",
