@@ -3,7 +3,6 @@ const util = require('util');
 const path = require('path');
 const winston = require('winston');
 const fs = require('fs-extra');
-// const klawSync = require('klaw-sync');
 
 // Selenium logging verbosity: silent | verbose | command | data | result | error
 const seleniumLogLevel = process.env.SELENIUM_LOG_LEVEL || 'error';
@@ -13,26 +12,6 @@ const winstonLogLevel = process.env.WINSTON_LOG_LEVEL || 'info';
 // Ensure logs folder exists
 const logDir = path.resolve(__dirname, 'logs');
 fs.ensureDirSync(logDir);
-
-/*
- * Create an array containing an explicit list of step files. Cucumber is rejecting a path
- * at this time.
- */
-
-/*
- * const findStepFiles = () => {
- *     try {
- *         return klawSync('./features/step_definitions',
- *             {
- *                 filter: item => path.extname(item.path) === '.js',
- *                 nodir: true
- *             }
- *         ).map(p => p.path);
- *     } catch (err) {
- *         throw new Error('Cannot find step definitions');
- *     }
- * };
- */
 
 exports.config = {
     /*
@@ -66,7 +45,7 @@ exports.config = {
     // Take screenshots if the selenium driver crashes
     screenshotOnReject: true,
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 60000,
+    waitforTimeout: 120000,
     // Default interval for all waitFor* commands (number of ms between checks to see if the runner should stop waiting)
     waitforInterval: 500,
 
@@ -106,8 +85,7 @@ exports.config = {
 
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
-        require: require('./support/lib/utilities').findStepFiles('./features/step-definitions'), // <string[]> (file/dir) require files before executing features
-        // require: findStepFiles(),
+        require: ['./features/step_definitions'], // <string[]> (file/dir) require files before executing features
         backtrace: true, // <boolean> show full backtrace for errors
         compiler: [], // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         dryRun: false, // <boolean> invoke formatters without executing steps
@@ -146,7 +124,6 @@ exports.config = {
      * variables, such as `browser`. It is the perfect place to define custom commands.
      */
     before: function (capabilities, specs) {
-        console.log('before hook' + JSON.stringify(specs));
         // Setup the Chai assertion framework
         const chai = require('chai');
 
@@ -210,11 +187,8 @@ exports.config = {
     /*
      *
      * Hook that gets executed before the suite starts
-     */
-    beforeSuite: function (suite) {
-        console.log(JSON.stringify(suite));
-    },
-    /*
+     * beforeSuite: function (suite) {
+     * },
      *
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)

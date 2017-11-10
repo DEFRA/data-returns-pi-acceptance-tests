@@ -37,10 +37,10 @@ To run on browserstack additional configuration files are required:
 
 **/browserstacklocal.json**
 
-Configuration settings for the BrowserStackLocal binary.  This agent allows browserstack.com to route traffic via the local machine and 
-requires settings as per the example below. "key" is the only required argument but "forcelocal" is likely always needed to allow traffic to 
-route via the local host.  For a full guide to the different options see  the [BrowserStackLocal Modifiers Guide](https://www.browserstack.com/local-testing#modifiers) 
-and the [browserstack-local NPM package](https://www.npmjs.com/package/browserstack-local) 
+Configuration settings for the BrowserStackLocal binary.  This agent allows browserstack.com to route traffic via the local machine and
+requires settings as per the example below. "key" is the only required argument but "forcelocal" is likely always needed to allow traffic to
+route via the local host.  For a full guide to the different options see  the [BrowserStackLocal Modifiers Guide](https://www.browserstack.com/local-testing#modifiers)
+and the [browserstack-local NPM package](https://www.npmjs.com/package/browserstack-local)
 
 ```json
 {

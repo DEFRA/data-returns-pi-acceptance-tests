@@ -9,18 +9,18 @@ const localConfig = {
      * ============
      * Maximum instances to run in parallel.  Can be overridden on a per-browser basis by adding maxInstances option under each capability.
      */
-    maxInstances: 3,
+    maxInstances: 1,
     capabilities: [
         {
             browserName: 'chrome',
-            maxInstances: 3
+            maxInstances: 1
         }
         /*
-         * ,
-         * {
+         *,
+         *{
          *    browserName: 'firefox',
-         *  maxInstances: 1
-         * }
+         *    maxInstances: 1
+         *}
          */
     ],
 
