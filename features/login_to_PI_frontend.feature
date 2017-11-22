@@ -4,5 +4,9 @@ Feature: Login to PI frontend
 
   Scenario: Some determinable business situation
     Given I am on the login page
-    When I submit a username and password
-    Then I am on the landing page
+    And  I submit a username and password
+    And I am on the landing page
+    And I continue to all sectors
+    And I am on all sectors page
+    And I select contact section
+
