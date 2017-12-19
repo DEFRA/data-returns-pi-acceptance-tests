@@ -16,29 +16,32 @@ class SectorsPage extends Page {
             site: {
                 id: '#site'
             },
-
             airconfirm: {
-                id: '#air-confirm'
+                id: '#releasesair'
             },
-
             landconfirm: {
-                id: '#land-confirm'
+                id: '#releasesland'
             },
-
             waterconfirm: {
-                id: '#water-confirm'
+                id: '#releaseswater'
             },
-
             wwconfirm: {
-                id: '#waste-water-confirm'
+                id: '#releaseswaste-water'
             },
-
             offsite: {
-                id: '#off-site'
+                id: '#off-site-add'
             },
-
             overseas: {
                 id: '#overseas'
+            },
+            checkdata: {
+                id: '#check'
+            },
+            sharedata: {
+                id: '#share'
+            },
+            submitdata: {
+                id: '#submit'
             }
 
         };
@@ -55,9 +58,15 @@ class SectorsPage extends Page {
 
     clickLink (linkSelector) {
         if (linkSelector && browser.isExisting(linkSelector)) {
-            const linkElement = browser.element(linkSelector);
-            linkElement.click();
+            winston.info('Calling waitForNav');
+            waitForNav(() => {
+                winston.info('Clicking the link ' + linkSelector);
+                browser.click(linkSelector);
+                // const linkElement = browser.element(linkSelector);
+                // linkElement.click();
+            });
         } else {
+            console.log(browser.getHTML('#content'));
             winston.error('Unable to find link in Sector.page.clickLink()');
             throw new Error('Unknown link');
         }

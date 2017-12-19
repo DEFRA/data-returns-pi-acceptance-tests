@@ -10,8 +10,6 @@ class OffSiteWastePage extends Page {
         console.log(onoffSiteWaste);
         onoffSiteWaste.should.equal('offsite');
     }
-  }
-
 }
 
 module.exports = new OffSiteWastePage();

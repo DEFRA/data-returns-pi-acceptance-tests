@@ -8,6 +8,7 @@ module.exports = function (action) {
     const oldPageId = browser.isExistingSafe('#pgid') ? browser.getValue('#pgid') : 'NO_OLD_PAGE_ID_FOUND';
     let currentPageId = null;
     try {
+        winston.info('Calling waitForNav action ' + action);
         action();
         browser.waitUntil(function () {
             try {
