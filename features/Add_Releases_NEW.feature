@@ -16,8 +16,6 @@ Feature: Login to PI frontend
     When I select release to air section
     And I am on challenge page
     And I select the yes radio button
-    And I am on the release to air substance table
-    And I select the add substance link
     And I am on the substance select page
     And I select a substance
     And I am on the substance details page
@@ -41,11 +39,15 @@ Feature: Login to PI frontend
     And I logout
 
 
-  Scenario: Delete addded releases
+  Scenario: Delete addded substances
     When I select release to air section
     And I am on the release to air substance table
     And I delete a substance
     And I am on delete confirmation page
     And I select the remove button
-    And I am on the substance details page
+    And I am on the release to air substance table
+    And I delete a substance
+    And I am on delete confirmation page
+    And I select the remove button
+    And I continue to all sectors
     And I logout

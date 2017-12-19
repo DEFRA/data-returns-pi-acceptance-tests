@@ -22,10 +22,9 @@ class SubTablePage extends Page {
 
     clickDelete () {
         console.log('About to click Delete');
-        const deletelink = browser.element(`#delete`);
+        const deletelink = browser.element(`.delete`);
         waitForNav(function () {
             deletelink.click();
-
         });
     }
 }
