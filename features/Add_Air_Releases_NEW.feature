@@ -14,14 +14,14 @@ Feature: Login to PI frontend
 
   Scenario: Enter release to air data as a new user
     When I select release to air section
-    And I am on challenge page
-    And I select the yes radio button
-    And I am on the substance select page
-    And I select a substance
-    And I am on the substance details page
-    And I enter a total
-    And I select a unit
-    And I select a method
+    And I am on the release to air challenge page
+    And I select the release to air yes radio button
+    And I am on the release to air substance select page
+    And I select an release to air substance
+    And I am on the release to air substance details page
+    And I enter a release to air substance total
+    And I select a release to air substance unit
+    And I select a release to air substance method
     And I logout
 
 
@@ -29,25 +29,25 @@ Feature: Login to PI frontend
   Scenario: Enter release to air data as an existing user
     When I select release to air section
     And I am on the release to air substance table
-    And I select the add substance link
-    And I am on the substance select page
-    And I select a substance
-    And I am on the substance details page
-    And I enter a total
-    And I select a unit
-    And I select a method
+    And I select the release to air add substance link
+    And I am on the release to air substance select page
+    And I select an release to air substance
+    And I am on the release to air substance details page
+    And I enter a release to air substance total
+    And I select a release to air substance unit
+    And I select a release to air substance method
     And I logout
 
 
   Scenario: Delete addded substances
     When I select release to air section
     And I am on the release to air substance table
-    And I delete a substance
-    And I am on delete confirmation page
-    And I select the remove button
+    And I delete a release to air substance
+    And I am on the release to air substance delete confirmation page
+    And I select the release to air substance remove button
     And I am on the release to air substance table
-    And I delete a substance
-    And I am on delete confirmation page
-    And I select the remove button
+    And I delete a release to air substance
+    And I am on the release to air substance delete confirmation page
+    And I select the release to air substance remove button
     And I continue to all sectors
     And I logout
