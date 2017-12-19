@@ -1,5 +1,5 @@
 'use strict';
-const AirSubTablePage = require('../support/pages/RelAirSubstanceTable.page');
+const AirSubTablePage = require('../../support/pages/RelAirSubstanceTable.page');
 
 module.exports = function () {
     this.defineStep('I am on the release to air substance table', function () {

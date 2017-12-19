@@ -1,5 +1,5 @@
 'use strict';
-const LandingPage = require('../support/pages/Landing.page');
+const LandingPage = require('../../support/pages/Landing.page');
 module.exports = function () {
     this.defineStep('I continue to all sectors', function () {
         console.log('Login page');

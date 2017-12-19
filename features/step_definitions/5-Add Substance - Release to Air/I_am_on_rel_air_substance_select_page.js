@@ -1,5 +1,5 @@
 'use strict';
-const SubSelectPage = require('../support/pages/SubstanceSelect.page');
+const SubSelectPage = require('../../support/pages/SubstanceSelect.page');
 
 
 module.exports = function () {

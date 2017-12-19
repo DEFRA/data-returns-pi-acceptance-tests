@@ -1,6 +1,6 @@
 'use strict';
 const util = require('util');
-const Sectors = require('../support/pages/Sectors.page');
+const Sectors = require('../../support/pages/Sectors.page');
 const winston = require('winston');
 module.exports = function () {
 

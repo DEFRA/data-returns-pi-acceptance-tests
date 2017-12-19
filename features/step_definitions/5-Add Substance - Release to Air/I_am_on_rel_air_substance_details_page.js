@@ -1,5 +1,5 @@
 'use strict';
-const SubDetailsPage = require('../support/pages/SubstanceDetails.page');
+const SubDetailsPage = require('../../support/pages/SubstanceDetails.page');
 
 module.exports = function () {
     this.defineStep('I am on the substance details page', function () {
