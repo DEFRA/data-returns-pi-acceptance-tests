@@ -41,11 +41,11 @@ Feature: Login to PI frontend
     And I logout
 
 
-  Scenario: Enter release to air data as an existing user
+  Scenario: Delete addded releases
     When I select release to air section
     And I am on the release to air substance table
     And I delete a substance
     And I am on delete confirmation page
-
+    And I select the remove button
     And I am on the substance details page
     And I logout
