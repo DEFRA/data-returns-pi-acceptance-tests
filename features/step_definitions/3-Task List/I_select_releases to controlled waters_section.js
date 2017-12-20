@@ -10,10 +10,4 @@ module.exports = function () {
         Sectors.clickLink(Sectors.links.waterconfirm.id);
     });
 
-    this.defineStep('I select release to controlled water section1', function () {
-        winston.info('Sectors Object1: ');
-        winston.info(util.inspect(Sectors, {colors: true}));
-        Sectors.clickLink(Sectors.links.waterconfirm.id);
-    });
-
 };
