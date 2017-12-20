@@ -6,7 +6,7 @@ module.exports = function () {
     this.defineStep('I select the release to air yes radio button', function () {
         winston.info('AirChallenge Object: ');
         winston.info(util.inspect(AirChallenge, {colors: true}));
-        AirChallenge.clickRadioButton(AirChallenge.buttons.yesButton.id);
+        AirChallenge.clickAirRadioButton(AirChallenge.buttons.yesButton.id);
 
     });
 

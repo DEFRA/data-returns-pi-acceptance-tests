@@ -7,7 +7,7 @@ const waitForNav = require('../lib/wait-for-navigation-on-action');
 landing.clickLink(check)
  */
 
-class AirChallengePage extends Page {
+class LandChallengePage extends Page {
     get buttons () {
         return {
             yesButton: {
@@ -20,15 +20,15 @@ class AirChallengePage extends Page {
     }
 
     get url () {
-        return '/releases/air/confirm';
+        return '/releases/land/confirm';
     }
 
-    onAirChallenge () {
+    onLandChallenge () {
         const onChallengePage = browser.getHTML('#page-name', false);
-        onChallengePage.should.equal('confirm-air');
+        onChallengePage.should.equal('confirm-land');
     }
 
-    clickAirRadioButton (buttonSelector) {
+    clickLandRadioButton (buttonSelector) {
      if (buttonSelector && browser.isExisting(buttonSelector)) {
         waitForNav(() => {
             winston.info('Clicking the link ' + buttonSelector);
@@ -43,4 +43,4 @@ class AirChallengePage extends Page {
     }
 }
 
-module.exports = new AirChallengePage();
+module.exports = new LandChallengePage();
