@@ -7,7 +7,7 @@ const waitForNav = require('../lib/wait-for-navigation-on-action');
 landing.clickLink(check)
  */
 
-class WaterChallengePage extends Page {
+class OffsiteChallengePage extends Page {
     get buttons () {
         return {
             yesButton: {
@@ -20,15 +20,15 @@ class WaterChallengePage extends Page {
     }
 
     get url () {
-        return '/releases/water/confirm';
+        return '/releases/waste-water/confirm';
     }
 
-    onWaterChallenge () {
+    onOffsiteWWChallenge () {
         const onChallengePage = browser.getHTML('#page-name', false);
-        onChallengePage.should.equal('confirm-water');
+        onChallengePage.should.equal('confirm-waste-water');
     }
 
-    clickWaterRadioButton (buttonSelector) {
+    clickOffsiteWWRadioButton (buttonSelector) {
      if (buttonSelector && browser.isExisting(buttonSelector)) {
         waitForNav(() => {
             winston.info('Clicking the link ' + buttonSelector);
@@ -43,4 +43,4 @@ class WaterChallengePage extends Page {
     }
 }
 
-module.exports = new WaterChallengePage();
+module.exports = new OffsiteChallengePage();

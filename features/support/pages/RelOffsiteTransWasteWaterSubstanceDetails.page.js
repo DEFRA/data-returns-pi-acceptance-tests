@@ -4,7 +4,7 @@ const winston = require('winston');
 const waitForNav = require('../lib/wait-for-navigation-on-action');
 
 class SubstanceDetailsPage extends Page {
-    get url () { return '/releases/water/detail'; }
+    get url () { return '/releases/waste-water/detail'; }
 
     onSubDetails () {
         const onSubDetailsPage = browser.getHTML('#page-name', false);
