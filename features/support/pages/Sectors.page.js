@@ -29,7 +29,7 @@ class SectorsPage extends Page {
                 id: '#releaseswaste-water'
             },
             offsite: {
-                id: '#off-site-add'
+                id: '#transfersoff-site'
             },
             overseas: {
                 id: '#overseas'

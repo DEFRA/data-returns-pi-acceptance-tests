@@ -3,42 +3,44 @@ const Page = require('./page');
 const winston = require('winston');
 const waitForNav = require('../lib/wait-for-navigation-on-action');
 
-class SubstanceDetailsPage extends Page {
-    get url () { return '/releases/land/detail'; }
+const ewcCode = [
+    '01 01 01',
+    '01 01 02',
+    '02 01 01'
+];
 
-    onSubDetails () {
-        const onSubDetailsPage = browser.getHTML('#page-name', false);
-        console.log(onSubDetailsPage);
-        onSubDetailsPage.should.equal('releases-detail-land');
+class SubstanceDetailsPage extends Page {
+    get url () { return '/transfers/off-site/add'; }
+
+    onWasteDetails () {
+        const onWasteDetailsPage = browser.getHTML('#page-name', false);
+        console.log(onWasteDetailsPage);
+        onWasteDetailsPage.should.equal('off-site-add');
     }
 
-    detailEnterValue () {
-        var input = browser.$('#value');
+    detailEWCCode () {
+        const ewcCodeToUse = ewcCode.pop();
+        const input = browser.$('#ewc-code');
         console.log('>>>>>>>' + JSON.stringify(input));
-        input.setValue('2345');
+        input.setValue(ewcCodeToUse);
         console.log(input.getValue()); // outputs: 'test123'
     }
 
-    detailSelectUnit () {
-        // const unitValue = 'Bq';
-        // const primaryValue = 'unit';
-
-        const selectUnit = browser.$('#unit');
-        console.log('>>>>>>>' + JSON.stringify(selectUnit));
-
-        selectUnit.selectByValue('4');
-        console.log(selectUnit.getValue());
+    detailWFDCode () {
+        const wfdCodeArray = ['D5', 'R13', 'R5', 'D1', 'D2', 'D3', 'D4'];
+        const wfdCodeIndex = Math.floor(Math.random() * wfdCodeArray.length);
+        const randomWfdCodeToUse = wfdCodeArray[wfdCodeIndex];
+        const input = browser.$('#wfd-code');
+        console.log('>>>>>>>' + JSON.stringify(input));
+        input.setValue(randomWfdCodeToUse);
+        console.log(input.getValue()); // outputs: 'test123'
     }
 
-    detailSelectMethod () {
-        // const unitValue = 'Bq';
-        // const primaryValue = 'unit';
-
-        const selectUnit = browser.$('#method');
-        console.log('>>>>>>>' + JSON.stringify(selectUnit));
-
-        selectUnit.selectByValue('3');
-        console.log(selectUnit.getValue());
+    detailWasteTotal () {
+        const input = browser.$('#value');
+        console.log('>>>>>>>' + JSON.stringify(input));
+        input.setValue('010101');
+        console.log(input.getValue()); // outputs: 'test123'
     }
 
     // const substanceId = label.getAttribute('for');
