@@ -12,7 +12,7 @@ class SubstanceSelectPage extends Page {
     onSubSelect () {
         const onSubSelectPage = browser.getHTML('#page-name', false);
         console.log(onSubSelectPage);
-        onSubSelectPage.should.equal('add-substance');
+        onSubSelectPage.should.equal('substances-air');
     }
 
     selectNextUnused () {

@@ -26,7 +26,7 @@ class SubstanceDetailsPage extends Page {
         const selectUnit = browser.$('#unit');
         console.log('>>>>>>>' + JSON.stringify(selectUnit));
 
-        selectUnit.selectByValue('4');
+        selectUnit.selectByValue('139');
         console.log(selectUnit.getValue());
     }
 

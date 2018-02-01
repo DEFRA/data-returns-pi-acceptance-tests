@@ -4,12 +4,12 @@ const winston = require('winston');
 const waitForNav = require('../lib/wait-for-navigation-on-action');
 
 class SubTablePage extends Page {
-    get url () { return '/'; }
+    get url () { return '/releases/air'; }
 
     onAirSubTable () {
         const onSubTablePage = browser.getHTML('#page-name', false);
         console.log(onSubTablePage);
-        onSubTablePage.should.equal('RELEASES_TO_AIR');
+        onSubTablePage.should.equal('releases-air');
     }
 
     clickAddSubstance () {

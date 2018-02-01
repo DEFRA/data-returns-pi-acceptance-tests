@@ -3,16 +3,16 @@ const Page = require('./page');
 const winston = require('winston');
 const waitForNav = require('../lib/wait-for-navigation-on-action');
 
-class SubTablePage extends Page {
+class LandSubTablePage extends Page {
     get url () { return '/releases/land/remove'; }
 
-    onDeleteConfirm () {
-        const onSubTablePage = browser.getHTML('#page-name', false);
-        console.log(onSubTablePage);
-        onSubTablePage.should.equal('confirm-delete-land');
+    onLandDeleteConfirm () {
+        const onLandSubTablePage = browser.getHTML('#page-name', false);
+        console.log(onLandSubTablePage);
+        onLandSubTablePage.should.equal('confirm-delete-land');
     }
 
-    clickRemoveButton () {
+    clickLandRemoveButton () {
         console.log('About to click remove button');
         const removeBtn = browser.element(`#removeBtn`);
         waitForNav(function () {
@@ -21,4 +21,4 @@ class SubTablePage extends Page {
     }
 }
 
-module.exports = new SubTablePage();
+module.exports = new LandSubTablePage();

@@ -3,16 +3,16 @@ const Page = require('./page');
 const winston = require('winston');
 const waitForNav = require('../lib/wait-for-navigation-on-action');
 
-class WasteTransferTablePage extends Page {
+class WasteTransferConfirmPage extends Page {
     get url () { return '/releases/off-site/remove'; }
 
-    onDeleteConfirm () {
-        const onWasteTransferTablePage = browser.getHTML('#page-name', false);
-        console.log(onWasteTransferTablePage);
-        onWasteTransferTablePage.should.equal('confirm-delete-off-site');
+    onWasteDeleteConfirm () {
+        const onWasteTransferConfirmPage = browser.getHTML('#page-name', false);
+        console.log(onWasteTransferConfirmPage);
+        onWasteTransferConfirmPage.should.equal('confirm-delete-off-site');
     }
 
-    clickRemoveButton () {
+    clickWasteRemoveButton () {
         console.log('About to click remove button');
         const removeBtn = browser.element(`#removeBtn`);
         waitForNav(function () {
@@ -21,4 +21,4 @@ class WasteTransferTablePage extends Page {
     }
 }
 
-module.exports = new WasteTransferTablePage();
+module.exports = new WasteTransferConfirmPage();

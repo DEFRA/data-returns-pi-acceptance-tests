@@ -9,7 +9,7 @@ class SubstanceDetailsPage extends Page {
     onSubDetails () {
         const onSubDetailsPage = browser.getHTML('#page-name', false);
         console.log(onSubDetailsPage);
-        onSubDetailsPage.should.equal('releases-detail');
+        onSubDetailsPage.should.equal('releases-detail-air');
     }
 
     detailEnterValue () {
@@ -26,7 +26,7 @@ class SubstanceDetailsPage extends Page {
         const selectUnit = browser.$('#unit');
         console.log('>>>>>>>' + JSON.stringify(selectUnit));
 
-        selectUnit.selectByValue('4');
+        selectUnit.selectByValue('139       ');
         console.log(selectUnit.getValue());
     }
 

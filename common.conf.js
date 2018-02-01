@@ -37,7 +37,7 @@ exports.config = {
     // Selenium logging verbosity: silent | verbose | command | data | result | error
     logLevel: seleniumLogLevel,
     // Wdio debugging (use node inspector)
-    debug: false,
+    debug: true,
     // Enables colors for log output.
     coloredLogs: true,
     // Saves a screenshot to a given path if a command fails.

@@ -1,9 +1,9 @@
 'use strict';
-const DeleteConfirmPage = require('../../support/pages/RelOffsiteTransWasteWaterDeleteConfirm.page');
+const WwDeleteConfirmPage = require('../../support/pages/RelOffsiteTransWasteWaterDeleteConfirm.page');
 
 module.exports = function () {
     this.defineStep('I am on the off-site transfer in water waste substance delete confirmation page', function () {
-        DeleteConfirmPage.onDeleteConfirm();
+        WwDeleteConfirmPage.onWaterDeleteConfirm();
         console.log('Delete Confirm Page');
 
     });
