@@ -35,7 +35,7 @@ class SectorsPage extends Page {
                 id: '#overseas'
             },
             checkdata: {
-                id: '#check'
+                id: '#review'
             },
             sharedata: {
                 id: '#share'
