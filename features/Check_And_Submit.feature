@@ -11,13 +11,15 @@ Feature: Login to PI frontend and submit substance data
     And I am on all sectors page
 
 
-  Scenario: Enter release to air data as a new user
+  Scenario: Check data before submitting
     When I select check section
-
+    And I am on the check data page and click accept
+    And I logout
 
 
   Scenario: Enter release to land data as a new user
-    When I select release to land section
-
+    When I select submit section
+    And I am on the submit page and click continue
+    And I logout
 
 

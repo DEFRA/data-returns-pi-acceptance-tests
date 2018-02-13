@@ -1,9 +1,9 @@
 'use strict';
 const util = require('util');
-const Sectors = require('../../support/pages/Sectors.page');
 const winston = require('winston');
-
 const LandingPage = require('../../support/pages/Landing.page');
+
+
 module.exports = function () {
 
     this.defineStep('I continue to all sectors', function () {
