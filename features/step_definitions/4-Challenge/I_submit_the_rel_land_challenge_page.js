@@ -9,5 +9,10 @@ module.exports = function () {
         LandChallenge.clickLandRadioButton(LandChallenge.buttons.yesButton.id);
 
     });
+    this.defineStep('I select the release to land no radio button', function () {
+        winston.info('AirChallenge Object: ');
+        winston.info(util.inspect(LandChallenge, {colors: true}));
+        LandChallenge.clickLandRadioButton(LandChallenge.buttons.noButton.id);
 
+    });
 };

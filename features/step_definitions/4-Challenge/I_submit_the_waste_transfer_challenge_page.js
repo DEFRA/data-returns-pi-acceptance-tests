@@ -9,5 +9,10 @@ module.exports = function () {
         WasteChallenge.clickWasteTransRadioButton(WasteChallenge.buttons.yesButton.id);
 
     });
+    this.defineStep('I select the waste transfer no radio button', function () {
+        winston.info('WaterChallenge Object: ');
+        winston.info(util.inspect(WasteChallenge, {colors: true}));
+        WasteChallenge.clickWasteTransRadioButton(WasteChallenge.buttons.noButton.id);
 
+    });
 };

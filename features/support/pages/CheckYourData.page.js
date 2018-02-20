@@ -7,12 +7,12 @@ class CheckDataPage extends Page {
     get url () { return '/check'; }
 
     onCheckData () {
-        const onCheck = browser.getHTML('#pgid', false);
+        const onCheck = browser.getHTML('#page-name', false);
         console.log(onCheck);
-        onCheck.should.equal('');
+        onCheck.should.equal('review');
     }
     clickAccept () {
-        const acceptBtn = browser.element(`//input[@value='Accept']`);
+        const acceptBtn = browser.element('#accept');
         waitForNav(function () {
             acceptBtn.click();
         });

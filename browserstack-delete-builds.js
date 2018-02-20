@@ -7,7 +7,9 @@
  *
  * Use from the command line:
  *
- * BROWSERSTACK_USERNAME=blah BROWSERSTACK_ACCESS_KEY=blah ./browserstack-delete-builds.js --pattern=substringstringfrombuildname --delete
+ *
+ *
+ BROWSERSTACK_USERNAME=blah BROWSERSTACK_ACCESS_KEY=blah ./browserstack-delete-builds.js --pattern=substringstringfrombuildname --delete
  *
  * Use without the --delete flag will show the build id's to be deleted (but won't delete anything)
  * Use without the --pattern=blah flag will result in all builds being in scope for deletion

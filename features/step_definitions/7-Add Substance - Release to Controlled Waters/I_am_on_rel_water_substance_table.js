@@ -14,4 +14,9 @@ module.exports = function () {
         AirSubTablePage.clickDelete();
         console.log('Substance (air) Table');
     });
+    this.defineStep('I click continue on the controlled water data table', function () {
+        AirSubTablePage.continue();
+        console.log('Substance (air) Table');
+    });
+
 };

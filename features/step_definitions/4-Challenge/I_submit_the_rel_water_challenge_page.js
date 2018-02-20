@@ -9,5 +9,10 @@ module.exports = function () {
         WaterChallenge.clickWaterRadioButton(WaterChallenge.buttons.yesButton.id);
 
     });
+    this.defineStep('I select the release to water no radio button', function () {
+        winston.info('WaterChallenge Object: ');
+        winston.info(util.inspect(WaterChallenge, {colors: true}));
+        WaterChallenge.clickWaterRadioButton(WaterChallenge.buttons.noButton.id);
 
+    });
 };

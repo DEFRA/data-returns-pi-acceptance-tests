@@ -9,5 +9,10 @@ module.exports = function () {
         AirChallenge.clickAirRadioButton(AirChallenge.buttons.yesButton.id);
 
     });
+    this.defineStep('I select the release to air no radio button', function () {
+        winston.info('AirChallenge Object: ');
+        winston.info(util.inspect(AirChallenge, {colors: true}));
+        AirChallenge.clickAirRadioButton(AirChallenge.buttons.noButton.id);
 
+    });
 };

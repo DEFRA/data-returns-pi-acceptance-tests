@@ -8,4 +8,10 @@ module.exports = function () {
         winston.info(util.inspect(OffChallenge, {colors: true}));
         OffChallenge.clickOffsiteWWRadioButton(OffChallenge.buttons.yesButton.id);
     });
+
+    this.defineStep('I select the off-site transfer in ww no radio button', function () {
+        winston.info('OffSiteChallenge Object: ');
+        winston.info(util.inspect(OffChallenge, {colors: true}));
+        OffChallenge.clickOffsiteWWRadioButton(OffChallenge.buttons.noButton.id);
+    });
 };

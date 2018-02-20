@@ -3,7 +3,6 @@ const Page = require('./page');
 const winston = require('winston');
 const waitForNav = require('../lib/wait-for-navigation-on-action');
 
-let radioButtonIndex = 0;
 class LandingPage extends Page {
 
     get links () {

@@ -85,67 +85,68 @@ const browserStackConfig = {
     // ============
     // Capabilities
     // ============
-    maxInstances: 3,
+    maxInstances: 1,
     capabilities: setupCapabilities([
         {
             'os': 'Windows',
             'os_version': '7',
             'browserName': 'ie',
             'browser_version': '8.0'
-        },
-        {
-            'os': 'Windows',
-            'os_version': '7',
-            'browserName': 'ie',
-            'browser_version': '9.0'
-        },
-        {
-            'os': 'Windows',
-            'os_version': '7',
-            'browserName': 'ie',
-            'browser_version': '10.0'
-        },
-        {
-            'os': 'Windows',
-            'os_version': '7',
-            'browserName': 'ie',
-            'browser_version': '11.0'
-        },
-        {
-            'os': 'Windows',
-            'os_version': '10',
-            'browserName': 'edge',
-            // The automation driver for this browser does support file uploads - use data returns preloading to load data and establish sessions.
-            'preloadFiles': true
-        },
-        {
-            'os': 'OS X',
-            'os_version': 'Sierra',
-            'browserName': 'safari',
-            'browser_version': '10.0',
-            'browserstack.safari.allowAllCookies': true,
-            // The automation driver for this browser does support file uploads - use data returns preloading to load data and establish sessions.
-            'preloadFiles': true
-        },
-        {
-            'os': 'android',
-            'os_version': '4.4',
-            'browser': 'android',
-            'device': 'Samsung Galaxy S5',
-            'browser_version': null,
-            // The automation driver for this browser does support file uploads - use data returns preloading to load data and establish sessions.
-            'preloadFiles': true
-        },
-        {
-            'os': 'ios',
-            'os_version': '9.1',
-            'browserName': 'iphone',
-            'browser_version': null,
-            'device': 'iPhone 6S Plus',
-            'browserstack.safari.allowAllCookies': true,
-            // The automation driver for this browser does support file uploads - use data returns preloading to load data and establish sessions.
-            'preloadFiles': true
         }
+         // ,
+        // {
+        //     'os': 'Windows',
+        //     'os_version': '7',
+        //     'browserName': 'ie',
+        //     'browser_version': '9.0'
+        // },
+        // {
+        //     'os': 'Windows',
+        //     'os_version': '7',
+        //     'browserName': 'ie',
+        //     'browser_version': '10.0'
+        // },
+        // {
+        //     'os': 'Windows',
+        //     'os_version': '7',
+        //     'browserName': 'ie',
+        //     'browser_version': '11.0'
+        // },
+        // {
+        //     'os': 'Windows',
+        //     'os_version': '10',
+        //     'browserName': 'edge',
+        //     // The automation driver for this browser does support file uploads - use data returns preloading to load data and establish sessions.
+        //     'preloadFiles': true
+        // },
+        // {
+        //     'os': 'OS X',
+        //     'os_version': 'Sierra',
+        //     'browserName': 'safari',
+        //     'browser_version': '10.0',
+        //     'browserstack.safari.allowAllCookies': true,
+        //     // The automation driver for this browser does support file uploads - use data returns preloading to load data and establish sessions.
+        //     'preloadFiles': true
+        // },
+        // {
+        //     'os': 'android',
+        //     'os_version': '4.4',
+        //     'browser': 'android',
+        //     'device': 'Samsung Galaxy S5',
+        //     'browser_version': null,
+        //     // The automation driver for this browser does support file uploads - use data returns preloading to load data and establish sessions.
+        //     'preloadFiles': true
+        // },
+        // {
+        //     'os': 'ios',
+        //     'os_version': '9.1',
+        //     'browserName': 'iphone',
+        //     'browser_version': null,
+        //     'device': 'iPhone 6S Plus',
+        //     'browserstack.safari.allowAllCookies': true,
+        //     // The automation driver for this browser does support file uploads - use data returns preloading to load data and establish sessions.
+        //     'preloadFiles': true
+        // }
     ]),
 
     // ===================

@@ -14,4 +14,9 @@ module.exports = function () {
         WasteTransferTablePage.clickDelete();
         console.log('Delete Waste Transfer');
     });
+
+    this.defineStep('I click continue on the waste transfer table', function () {
+        WasteTransferTablePage.continue();
+        console.log('Delete Waste Transfer');
+    });
 };
