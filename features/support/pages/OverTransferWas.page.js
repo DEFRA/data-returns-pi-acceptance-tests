@@ -12,6 +12,4 @@ class OffSiteWWPage extends Page {
     }
 }
 
-}
-
 module.exports = new OffSiteWWPage();
