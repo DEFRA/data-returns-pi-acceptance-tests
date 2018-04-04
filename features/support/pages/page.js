@@ -54,5 +54,27 @@ class Page {
             browser.click('#continueBtn');
         });
     }
+
+    saveAndContinue () {
+        const self = this;
+        self.checkOpen();
+
+        try {
+            browser.waitUntil(function () {
+                const isDisabled = browser.getAttribute('#continueBtn', 'disabled') === 'true';
+                if (isDisabled) {
+                    winston.info(`Waiting for continue button on ${self.url} to be enabled before continuing. (isDisabled=${isDisabled})`);
+                }
+                return !isDisabled;
+            }, browser.options.waitforTimeout, `Continue button on ${self.url} not enabled within the allowed time.`, browser.options.waitforInterval);
+        } catch (e) {
+            winston.error('Error waiting for continue to be enabled', e);
+            throw e;
+        }
+
+        waitForNav(function () {
+            browser.click('#continueBtn');
+        });
+    }
 }
 module.exports = Page;

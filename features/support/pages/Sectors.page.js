@@ -10,11 +10,11 @@ landing.clickLink(check)
 class SectorsPage extends Page {
     get links () {
         return {
-            contact: {
-                id: '#contact'
+            nace: {
+                id: '#checknace-code'
             },
-            site: {
-                id: '#site'
+            nose: {
+                id: '#checknose-code'
             },
             airconfirm: {
                 id: '#releasesair'

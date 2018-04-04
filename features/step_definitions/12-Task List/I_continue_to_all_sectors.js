@@ -13,22 +13,31 @@ module.exports = function () {
         LandingPage.isLoggedIn();
     });
 
+    this.defineStep('I select an unopen permit', function () {
+        console.log('Login page');
+        LandingPage.open();
+        LandingPage.checkOpen();
+        winston.info('LandingPage Object: ');
+        winston.info(util.inspect(LandingPage, {colors: true}));
+        LandingPage.clickLandingLink('42355');
+    });
+
     this.defineStep('I select an unsubmitted permit', function () {
         console.log('Login page');
         LandingPage.open();
         LandingPage.checkOpen();
         winston.info('LandingPage Object: ');
         winston.info(util.inspect(LandingPage, {colors: true}));
-        LandingPage.clickLandingLink(LandingPage.links.openLink.id);
+        LandingPage.clickLandingLink('42355');
     });
 
-    this.defineStep('I select an submitted permit', function () {
+    this.defineStep('I select a submitted permit', function () {
         console.log('Login page');
         LandingPage.open();
         LandingPage.checkOpen();
         winston.info('LandingPage Object: ');
         winston.info(util.inspect(LandingPage, {colors: true}));
-        LandingPage.clickLandingLink(LandingPage.links.viewLink.id);
+        LandingPage.clickLandingLink('42355');
     });
 
 };

@@ -16,7 +16,7 @@ class SubstanceSelectPage extends Page {
     }
 
     selectNextUnused () {
-        const substanceRadioButtons = browser.$$('//input[@name="substanceId"]');
+        const substanceRadioButtons = browser.$$('//input[@name="parameterId"]');
         const nextRadioButton = substanceRadioButtons[radioButtonIndex];
         winston.info(nextRadioButton.getHTML());
         // Increment the index so that the next time this method is called we select the next one down
