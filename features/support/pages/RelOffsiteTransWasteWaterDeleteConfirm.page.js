@@ -4,7 +4,7 @@ const winston = require('winston');
 const waitForNav = require('../lib/wait-for-navigation-on-action');
 
 class OffsiteSubTablePage extends Page {
-    get url () { return '/releases/water/remove'; }
+    get url () { return '/releases/waste-water/remove'; }
 
     onWaterDeleteConfirm () {
         const onOffsiteSubTablePage = browser.getHTML('#page-name', false);

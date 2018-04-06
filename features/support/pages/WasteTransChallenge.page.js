@@ -29,13 +29,13 @@ class WasteTransChallengePage extends Page {
     }
 
     clickWasteTransRadioButton (buttonSelector) {
-     if (buttonSelector && browser.isExisting(buttonSelector)) {
-        waitForNav(() => {
-            winston.info('Clicking the link ' + buttonSelector);
-            browser.click(buttonSelector);
-            this.continue();
-        });
-    } else {
+        if (buttonSelector && browser.isExisting(buttonSelector)) {
+            waitForNav(() => {
+                winston.info('Clicking the link ' + buttonSelector);
+                browser.click(buttonSelector);
+                this.continue();
+            });
+        } else {
             console.log(browser.getHTML('#content'));
             winston.error('Unable to find link in Sector.page.clickLink()');
             throw new Error('Unknown Sector link');

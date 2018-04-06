@@ -1,6 +1,7 @@
 'use strict';
 const winston = require('winston');
 const waitForNav = require('../lib/wait-for-navigation-on-action');
+
 class Page {
     get url () {
         throw new Error('Page implementation does not override method url()');
@@ -33,26 +34,30 @@ class Page {
         winston.debug(`Page.checkOpen - checking for ${this.url} completed successfully`);
     }
 
-    continue () {
-        const self = this;
-        self.checkOpen();
-
+    static doContinue () {
+        winston.info(`Waiting for continue button on ${browser.getUrl()} to be enabled....`);
         try {
             browser.waitUntil(function () {
                 const isDisabled = browser.getAttribute('#continueBtn', 'disabled') === 'true';
                 if (isDisabled) {
-                    winston.info(`Waiting for continue button on ${self.url} to be enabled before continuing. (isDisabled=${isDisabled})`);
+                    winston.info(`Waiting for continue button on ${browser.getUrl()} to be enabled before continuing. (isDisabled=${isDisabled})`);
                 }
                 return !isDisabled;
-            }, browser.options.waitforTimeout, `Continue button on ${self.url} not enabled within the allowed time.`, browser.options.waitforInterval);
+            }, browser.options.waitforTimeout, `Continue button on ${browser.getUrl()} not enabled within the allowed time.`, browser.options.waitforInterval);
         } catch (e) {
-            winston.error('Error waiting for continue to be enabled', e);
+            winston.error(`Error waiting for continue button to be enabled on ${browser.getUrl()}`, e);
             throw e;
         }
 
         waitForNav(function () {
             browser.click('#continueBtn');
         });
+    }
+
+    continue () {
+        const self = this;
+        self.checkOpen();
+        Page.doContinue();
     }
 
     saveAndContinue () {
@@ -77,4 +82,5 @@ class Page {
         });
     }
 }
+
 module.exports = Page;
