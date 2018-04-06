@@ -1,11 +1,10 @@
 'use strict';
+const {defineStep} = require('cucumber');
 const util = require('util');
 const Sectors = require('../../support/pages/Sectors.page');
 const winston = require('winston');
-module.exports = function () {
-    this.defineStep('I select the waste transfer section', function () {
-        winston.info('Sectors Object: ');
-        winston.info(util.inspect(Sectors, {colors: true}));
-        Sectors.clickLink(Sectors.links.offsite.id);
-    });
-};
+defineStep('I select the waste transfer section', function () {
+    winston.info('Sectors Object: ');
+    winston.info(util.inspect(Sectors, {colors: true}));
+    Sectors.clickLink(Sectors.links.offsite.id);
+});

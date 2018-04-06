@@ -1,10 +1,8 @@
 'use strict';
+const {defineStep} = require('cucumber');
 const airDeleteConfirmPage = require('../../support/pages/RelAirDeleteConfirm.page');
 
-module.exports = function () {
-    this.defineStep('I am on the release to air substance delete confirmation page', function () {
-        airDeleteConfirmPage.onAirDeleteConfirm();
-        console.log('Delete Confirm Page');
-
-    });
-};
+defineStep('I am on the release to air substance delete confirmation page', function () {
+    airDeleteConfirmPage.onAirDeleteConfirm();
+    console.log('Delete Confirm Page');
+});

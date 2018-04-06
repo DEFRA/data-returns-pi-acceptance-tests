@@ -1,10 +1,9 @@
 'use strict';
+const {defineStep} = require('cucumber');
 const AirReleasePage = require('../../support/pages/ReleaseToLandChallenge.page');
 
-module.exports = function () {
-    this.defineStep('I am on the release to land challenge page', function () {
-        AirReleasePage.onLandChallenge();
-        console.log('Challenge Page');
+defineStep('I am on the release to land challenge page', function () {
+    AirReleasePage.onLandChallenge();
+    console.log('Challenge Page');
 
-    });
-};
+});

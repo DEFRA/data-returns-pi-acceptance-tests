@@ -26,6 +26,8 @@ exports.config = {
         // 'path/to/excluded/files'
     ],
 
+    // execArgv: ['--inspect'],
+
     /*
      *
      * ===================
@@ -85,7 +87,7 @@ exports.config = {
 
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
-        require: ['./features/step_definitions'], // <string[]> (file/dir) require files before executing features
+        require: ['./features/step_definitions/**/*.js'], // <string[]> (file/dir) require files before executing features
         backtrace: true, // <boolean> show full backtrace for errors
         compiler: [], // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         dryRun: false, // <boolean> invoke formatters without executing steps
@@ -97,8 +99,10 @@ exports.config = {
         profile: [], // <string[]> (name) specify the profile to use
         strict: true, // <boolean> fail if there are any undefined or pending steps
         tags: [], // <string[]> (expression) only execute the features or scenarios with tags matching the expression
+        tagExpression: 'not @Pending',
         timeout: 60000, // <number> timeout for step definitions
-        ignoreUndefinedDefinitions: false // <boolean> Enable this config to treat undefined definitions as warnings.
+        ignoreUndefinedDefinitions: false, // <boolean> Enable this config to treat undefined definitions as warnings.
+        failAmbiguousDefinitions: true
     },
 
     /*
@@ -233,10 +237,10 @@ exports.config = {
 
     // Cucumber specific hooks
     beforeFeature: function (feature) {
-        winston.info(`Running feature: ${feature.getName()}`);
+        winston.info(`Running feature: ${feature.name}`);
     },
     beforeScenario: function (scenario) {
-        winston.info(`Running scenario: ${scenario.getName()}`);
+        winston.info(`Running scenario: ${scenario.name}`);
     }
     /*
      * beforeStep: function (step) {
