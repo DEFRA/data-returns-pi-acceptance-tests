@@ -1,38 +1,39 @@
 'use strict';
 const {defineStep} = require('cucumber');
-const util = require('util');
 const winston = require('winston');
 const LandingPage = require('../../support/pages/Landing.page');
 defineStep('I continue to all sectors', function () {
-    console.log('Login page');
     LandingPage.open();
     LandingPage.checkOpen();
     LandingPage.isLoggedIn();
 });
 
-defineStep('I select an unopen permit', function () {
-    console.log('Login page');
+defineStep(/^I open the submission for permit (\w+)$/, function (permitToUse) {
     LandingPage.open();
     LandingPage.checkOpen();
-    winston.info('LandingPage Object: ');
-    winston.info(util.inspect(LandingPage, {colors: true}));
-    LandingPage.clickLandingLink('42355');
+    LandingPage.clickLandingLink(permitToUse);
 });
 
 defineStep('I select an unsubmitted permit', function () {
-    console.log('Login page');
     LandingPage.open();
     LandingPage.checkOpen();
-    winston.info('LandingPage Object: ');
-    winston.info(util.inspect(LandingPage, {colors: true}));
-    LandingPage.clickLandingLink('42355');
+    const permitToUse = LandingPage.getFirstUnsubmittedPermit('Pollution Inventory reporting');
+    winston.info(`Using permit ${permitToUse}`);
+    LandingPage.clickLandingLink(permitToUse);
+});
+
+defineStep('I select a previously opened permit', function () {
+    LandingPage.open();
+    LandingPage.checkOpen();
+    const permitToUse = LandingPage.getFirstOpenedPermit('Pollution Inventory reporting');
+    winston.info(`Using permit ${permitToUse}`);
+    LandingPage.clickLandingLink(permitToUse);
 });
 
 defineStep('I select a submitted permit', function () {
-    console.log('Login page');
     LandingPage.open();
     LandingPage.checkOpen();
-    winston.info('LandingPage Object: ');
-    winston.info(util.inspect(LandingPage, {colors: true}));
-    LandingPage.clickLandingLink('42355');
+    const permitToUse = LandingPage.getFirstSubmittedPermit('Pollution Inventory reporting');
+    winston.info(`Using permit ${permitToUse}`);
+    LandingPage.clickLandingLink(permitToUse);
 });
