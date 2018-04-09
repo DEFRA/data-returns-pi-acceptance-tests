@@ -9,8 +9,6 @@ class NosePage extends Page {
     isNoseLoggedIn () {
         // const onTaskList = browser.getAttribute('#page-name', 'value'
         const onNosePage = browser.getHTML('#page-name', false);
-        console.log(onNosePage);
-        // const onNosePage = browser.element('#page-name');
         onNosePage.should.equal('nose');
     }
     noseEnterValue () {

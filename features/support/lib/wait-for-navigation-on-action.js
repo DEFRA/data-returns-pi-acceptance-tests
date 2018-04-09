@@ -6,9 +6,10 @@ util.inspect.defaultOptions = {depth: null, colors: true};
 module.exports = function (action) {
     // Page Id element is embedded on each page by the frontend layout.html
     const oldPageId = browser.isExistingSafe('#pgid') ? browser.getValue('#pgid') : 'NO_OLD_PAGE_ID_FOUND';
+    const oldPageUrl = browser.getUrl();
     let currentPageId = null;
     try {
-        winston.info('Calling waitForNav action ' + action);
+        winston.debug('Calling waitForNav action ' + action);
         action();
         browser.waitUntil(function () {
             try {
@@ -27,5 +28,5 @@ module.exports = function (action) {
         winston.error(`Expected page id (${oldPageId}) to change within ${browser.options.waitforTimeout}ms of navigation.  Current page id is ${currentPageId}`, e);
         throw e;
     }
-    winston.info(`Page load complete.  [Old page id: ${util.inspect(oldPageId)}, current page id: ${util.inspect(currentPageId)}]`);
+    winston.info(`Page load complete.  [Old page: id=${util.inspect(oldPageId)}, url=${oldPageUrl}.  Current page: id=${util.inspect(currentPageId)}, url=${browser.getUrl()}]`);
 };

@@ -14,7 +14,6 @@ class SubstanceDetailsPage extends Page {
 
     onWasteDetails () {
         const onWasteDetailsPage = browser.getHTML('#page-name', false);
-        console.log(onWasteDetailsPage);
         onWasteDetailsPage.should.equal('off-site-add');
     }
 

@@ -13,55 +13,62 @@ Feature: Login to PI frontend and submit substance data
 
   Scenario: Enter release to air data as a new user
     When I select the "Releases to air" task-list section
-    And I am on the release to air challenge page
-    And I select the release to air yes radio button
-    And I am on the release to air substance select page
-    And I select an release to air substance
-    And I am on the release to air substance details page
-    And I enter a release to air substance total
-    And I select a release to air substance unit
-    And I select a release to air substance method
-    And I click continue on the release to air substance table
+    And I am on the "Releases to air" challenge page
+    And I answer yes to the "Releases to air" challenge
+    And I am on the "Releases to air" selection page
+    And I select a substance for "Releases to air"
+    And I am on the "Releases to air" details page
+    And I enter a "Releases to air" substance total
+    And I enter a "Releases to air" substance unit
+    And I enter a "Releases to air" substance method
+    And I confirm I want to add the specified substance to "Releases to air"
+    And I click continue on the "Releases to air" substance table
+    Then I am on the task-list page
     And I logout
 
   Scenario: Enter release to land data as a new user
     When I select the "Releases to land" task-list section
-    And I am on the release to land challenge page
-    And I select the release to land yes radio button
-    And I am on the release to land substance select page
-    And I select an release to land substance
-    And I am on the release to land substance details page
-    And I enter a release to land substance total
-    And I select a release to land substance unit
-    And I select a release to land substance method
-    And I click continue on the release to land substance table
+    And I am on the "Releases to land" challenge page
+    And I answer yes to the "Releases to land" challenge
+    And I am on the "Releases to land" selection page
+    And I select a substance for "Releases to land"
+    And I am on the "Releases to land" details page
+    And I enter a "Releases to land" substance total
+    And I enter a "Releases to land" substance unit
+    And I enter a "Releases to land" substance method
+    And I confirm I want to add the specified substance to "Releases to land"
+    And I click continue on the "Releases to land" substance table
+    Then I am on the task-list page
     And I logout
-
 
   Scenario: Enter release to controlled water data as a new user
     When I select the "Releases to controlled waters" task-list section
-    And I am on the release to water challenge page
-    And I select the release to water yes radio button
-    And I am on the release to water substance select page
-    And I select an release to water substance
-    And I am on the release to water substance details page
-    And I enter a release to water substance total
-    And I select a release to water substance unit
-    And I select a release to water substance method
-    And I click continue on the controlled water data table
+    And I am on the "Releases to controlled waters" challenge page
+    And I answer yes to the "Releases to controlled waters" challenge
+    And I am on the "Releases to controlled waters" selection page
+    And I select a substance for "Releases to controlled waters"
+    And I am on the "Releases to controlled waters" details page
+    And I enter a "Releases to controlled waters" substance total
+    And I enter a "Releases to controlled waters" substance unit
+    And I enter a "Releases to controlled waters" substance method
+    And I confirm I want to add the specified substance to "Releases to controlled waters"
+    And I click continue on the "Releases to controlled waters" substance table
+    Then I am on the task-list page
     And I logout
 
   Scenario: Enter off-site transfer in water waste data as a new user
     When I select the "Off-site transfers in wastewater" task-list section
-    And I am on the off-site transfer in water waste challenge page
-    And I select the off-site transfer in ww yes radio button
-    And I am on the off-site transfer in water waste substance select page
-    And I select an off-site transfer in water waste substance
-    And I am on the off-site transfer in water waste substance details page
-    And I enter a off-site transfer in water waste substance total
-    And I select a off-site transfer in water waste substance unit
-    And I select a off-site transfer in water waste substance method
-    And I click continue on the water waste data table
+    And I am on the "Off-site transfers in wastewater" challenge page
+    And I answer yes to the "Off-site transfers in wastewater" challenge
+    And I am on the "Off-site transfers in wastewater" selection page
+    And I select a substance for "Off-site transfers in wastewater"
+    And I am on the "Off-site transfers in wastewater" details page
+    And I enter a "Off-site transfers in wastewater" substance total
+    And I enter a "Off-site transfers in wastewater" substance unit
+    And I enter a "Off-site transfers in wastewater" substance method
+    And I confirm I want to add the specified substance to "Off-site transfers in wastewater"
+    And I click continue on the "Off-site transfers in wastewater" substance table
+    Then I am on the task-list page
     And I logout
 
   Scenario: Enter waste transfer data as a new user

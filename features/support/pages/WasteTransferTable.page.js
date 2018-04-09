@@ -4,11 +4,12 @@ const winston = require('winston');
 const waitForNav = require('../lib/wait-for-navigation-on-action');
 
 class WasteTransferTablePage extends Page {
-    get url () { return '/transfers/off-site'; }
+    get url () {
+        return '/transfers/off-site';
+    }
 
     onWasteTransferTable () {
         const onSubTablePage = browser.getHTML('#page-name', false);
-        console.log(onSubTablePage);
         onSubTablePage.should.equal('off-site');
     }
 

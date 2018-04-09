@@ -1,16 +1,16 @@
 'use strict';
 const Page = require('./page');
-const winston = require('winston');
-const waitForNav = require('../lib/wait-for-navigation-on-action');
 
 class NacePage extends Page {
-    get url () { return '/nace-code'; }
+    get url () {
+        return '/nace-code';
+    }
 
     isNaceLoggedIn () {
         const onNacePage = browser.getHTML('#page-name', false);
-        console.log(onNacePage);
         onNacePage.should.equal('nace');
     }
+
     naceEnterValue () {
         const input = browser.$('#nace-code');
         console.log('>>>>>>>' + JSON.stringify(input));
