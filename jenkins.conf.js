@@ -24,9 +24,9 @@ const localConfig = {
     capabilities: setupCapabilities([
         {
             browserName: 'chrome'
-        },
-        {
-            browserName: 'firefox'
+        // },
+        // {
+        //     browserName: 'firefox'
         }
     ]),
 
@@ -57,10 +57,10 @@ const localConfig = {
         'webdriver_firefox_allowed_hosts': 'localhost,ip6-localhost,ip6-loopback'
     },
     seleniumArgs: {
-        version: '3.4.0'
+        version: '3.11.0'
     },
     seleniumInstallArgs: {
-        version: '3.4.0'
+        version: '3.11.0'
     }
 };
 exports.config = lodash.defaultsDeep(localConfig, commonConfig);
