@@ -5,10 +5,12 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/wdio ./local.conf.js",
-    "ci": "./node_modules/.bin/wdio ./jenkins.conf.js",
-    "bstest": "./node_modules/.bin/wdio ./browserstack.conf.js",
-    "lint": "./node_modules/eslint/bin/eslint.js *.js ./features/step_definitions/** ./features/support/lib/** ./features/support/pages/**"
+    "test": "./node_modules/.bin/wdio ./src/conf/local.conf.js",
+    "ci": "./node_modules/.bin/wdio ./src/conf/jenkins.conf.js",
+    "bstest": "./node_modules/.bin/wdio ./src/conf/browserstack.conf.js",
+    "lint": "./node_modules/eslint/bin/eslint.js *.js ./src/js/**",
+    "docker-build": "docker build -t defra/data-returns-pi-acceptance-tests . && docker images",
+    "docker-run": "docker run -it --network host -v \"$(pwd)/dockerlogs:/app/log/\" -e \"SERVICE_URL=http://localhost:3000/\" defra/data-returns-pi-acceptance-tests"
   },
   "repository": {
     "type": "git",
