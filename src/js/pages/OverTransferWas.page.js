@@ -6,10 +6,6 @@ class OffSiteWWPage extends Page {
         return '/overseas';
     }
 
-    onOffSiteWWPage () {
-        const onOffSiteWW = browser.getHTML('#page-name', false);
-        onOffSiteWW.should.equal('overseas');
-    }
 }
 
 module.exports = new OffSiteWWPage();

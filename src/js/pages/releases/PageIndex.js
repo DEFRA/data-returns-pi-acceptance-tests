@@ -4,7 +4,9 @@ const ReleasesSubstanceTablePage = require('./ReleasesSubstanceTable.page');
 const ReleasesSubstanceSelectionPage = require('./ReleasesSubstanceSelection.page');
 const ReleasesDetailsPage = require('./ReleasesSubstanceDetails.page');
 const ReleasesDeletePage = require('./ReleasesDeleteSubstance.page');
-
+const TransferSelectAddressPage = require('./TransferSelectAddress.page');
+const TransferAddAddressPage = require('./TransferAddAddress.page');
+const TransferDetailPage = require('./TransferDetail.page');
 module.exports = {
     'index': {
         'Releases to air': {
@@ -34,9 +36,16 @@ module.exports = {
             'details': new ReleasesDetailsPage('/releases/waste-water/detail'),
             'challenge': new ReleasesChallengePage('/releases/waste-water/confirm'),
             'delete': new ReleasesDeletePage('/releases/waste-water/remove')
+        },
+        'Waste Transfer': {
+            'challenge': new ReleasesChallengePage('/transfers/waste/confirm-overseas'),
+            'select-business-address': new TransferSelectAddressPage('/transfers/waste/selectBusinessAddress'),
+            'business-address': new TransferAddAddressPage('/transfers/waste/addBusinessAddress'),
+            'select-destination-address': new TransferSelectAddressPage('/transfers/waste/selectSiteAddress'),
+            'destination-address': new TransferAddAddressPage('/transfers/waste/addSiteAddress'),
+            'details': new TransferDetailPage('/transfers/waste/overseas/detail')
         }
     },
-
     getReleasesPage: function (releaseType, pageName) {
         const releasesSection = this.index[releaseType];
         if (!releasesSection) {

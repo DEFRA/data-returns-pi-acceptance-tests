@@ -13,14 +13,11 @@ Feature: Login to PI frontend and submit substance data
 
   Scenario: Add or check my nace details
     When  I select the "NACE code" task-list section
-    And I am on the nace page
     And I enter the nace value
-    And I am on nace summary
+
     And I logout
 
   Scenario: Add or check my nose details
     When  I select the "NOSE-P code(s)" task-list section
-    And I am on the nose page
     And I enter the nose value
-    And I am on nose summary
     And I logout

@@ -3,12 +3,7 @@ const Page = require('./page');
 
 class NacePage extends Page {
     get url () {
-        return '/nace-code';
-    }
-
-    isNaceLoggedIn () {
-        const onNacePage = browser.getHTML('#page-name', false);
-        onNacePage.should.equal('nace');
+        return '/check/nace-code';
     }
 
     naceEnterValue () {

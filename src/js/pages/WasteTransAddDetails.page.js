@@ -10,28 +10,24 @@ const ewcCode = [
 ];
 
 class SubstanceDetailsPage extends Page {
-    get url () { return '/transfers/off-site/add'; }
+    get url () { return '/transfers/waste/codes'; }
 
-    onWasteDetails () {
-        const onWasteDetailsPage = browser.getHTML('#page-name', false);
-        onWasteDetailsPage.should.equal('off-site-add');
-    }
 
-    detailEWCCode () {
-        const ewcCodeToUse = ewcCode.pop();
+    detailEWCCode (ewcCodeToUse) {
+        // const ewcCodeToUse = ewcCode.pop();
         const input = browser.$('#ewc-code');
         console.log('>>>>>>>' + JSON.stringify(input));
         input.setValue(ewcCodeToUse);
         console.log(input.getValue()); // outputs: 'test123'
     }
 
-    detailWFDCode () {
-        const wfdCodeArray = ['D5', 'R13', 'R5', 'D1', 'D2', 'D3', 'D4'];
-        const wfdCodeIndex = Math.floor(Math.random() * wfdCodeArray.length);
-        const randomWfdCodeToUse = wfdCodeArray[wfdCodeIndex];
+    detailWFDCode (rdCode) {
+        // const wfdCodeArray = ['D5', 'R13', 'R5', 'D1', 'D2', 'D3', 'D4'];
+        // const wfdCodeIndex = Math.floor(Math.random() * wfdCodeArray.length);
+        // const rdCode = wfdCodeArray[wfdCodeIndex];
         const input = browser.$('#wfd-code');
         console.log('>>>>>>>' + JSON.stringify(input));
-        input.setValue(randomWfdCodeToUse);
+        input.setValue(rdCode);
         console.log(input.getValue()); // outputs: 'test123'
     }
 

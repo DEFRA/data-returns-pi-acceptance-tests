@@ -6,10 +6,6 @@ class SitePage extends Page {
         return '/site';
     }
 
-    onSitePage () {
-        const onSite = browser.getHTML('#page-name', false);
-        onSite.should.equal('site');
-    }
 }
 
 module.exports = new SitePage();

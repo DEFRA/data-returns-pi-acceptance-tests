@@ -3,20 +3,23 @@ const {defineStep} = require('cucumber');
 const WasteDetailsPage = require('../../pages/WasteTransAddDetails.page');
 
 defineStep('I am on the waste transfer add page', function () {
-    WasteDetailsPage.onWasteDetails();
+    WasteDetailsPage.open();
+    WasteDetailsPage.checkOpen();
     console.log('Add Waste Transfer Page');
 
 });
 
-defineStep('I enter a EWC code', function () {
-    WasteDetailsPage.detailEWCCode();
+// I choose the "02 01 02" EWC code
+
+defineStep(/^I choose the "([^"]+)" EWC code$/, function (ewcCode) {
+    WasteDetailsPage.detailEWCCode(ewcCode);
     console.log('Add EWC code');
 
 });
 
-defineStep('I enter a WFD code', function () {
-    WasteDetailsPage.detailWFDCode();
-    console.log('Add WFD code');
+defineStep(/^I choose the "([^"]+)" RD code$/, function (rdCode) {
+    WasteDetailsPage.detailWFDCode(rdCode);
+    console.log('Add EWC RD code');
 
 });
 

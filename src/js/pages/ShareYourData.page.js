@@ -6,10 +6,6 @@ class SharePage extends Page {
         return '/share';
     }
 
-    onSharePage () {
-        const onShare = browser.getHTML('#page-name', false);
-        onShare.should.equal('share');
-    }
 }
 
 module.exports = new SharePage();

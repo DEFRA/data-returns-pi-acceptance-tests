@@ -8,9 +8,7 @@ class TaskListPage extends Page {
 
     openSection (sectionName) {
         // Find the section with the given title
-        const sectionLinkSpan = browser.element('span=' + sectionName);
-        // The link is the parent of the span
-        const linkElement = sectionLinkSpan.element('..');
+        const linkElement = browser.element('a=' + sectionName);
         linkElement.click();
     }
 }

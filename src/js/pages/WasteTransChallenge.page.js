@@ -20,13 +20,9 @@ class WasteTransChallengePage extends Page {
     }
 
     get url () {
-        return '/transfers/off-site/confirm';
+        return '/transfers/waste/confirm';
     }
 
-    onWasteTransChallenge () {
-        const onChallengePage = browser.getHTML('#page-name', false);
-        onChallengePage.should.equal('confirm-off-site');
-    }
 
     clickWasteTransRadioButton (buttonSelector) {
         if (buttonSelector && browser.isExisting(buttonSelector)) {

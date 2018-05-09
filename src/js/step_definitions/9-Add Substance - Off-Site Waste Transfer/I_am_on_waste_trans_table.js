@@ -3,7 +3,7 @@ const {defineStep} = require('cucumber');
 const WasteTransferTablePage = require('../../pages/WasteTransferTable.page');
 
 defineStep('I am on the waste transfer table', function () {
-    WasteTransferTablePage.onWasteTransferTable();
+    WasteTransferTablePage.checkOpen();
     console.log('On Waste Transfer Table');
 });
 defineStep('I select the add waste transfer link', function () {

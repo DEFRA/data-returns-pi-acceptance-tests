@@ -4,13 +4,8 @@ const winston = require('winston');
 const waitForNav = require('../lib/wait-for-navigation-on-action');
 
 class NosePage extends Page {
-    get url () { return '/nose-code'; }
+    get url () { return '/check/nose-code'; }
 
-    isNoseLoggedIn () {
-        // const onTaskList = browser.getAttribute('#page-name', 'value'
-        const onNosePage = browser.getHTML('#page-name', false);
-        onNosePage.should.equal('nose');
-    }
     noseEnterValue () {
         const input = browser.$('#nose-code');
         console.log('>>>>>>>' + JSON.stringify(input));

@@ -4,12 +4,7 @@ const waitForNav = require('../lib/wait-for-navigation-on-action');
 
 class CheckDataPage extends Page {
     get url () {
-        return '/check';
-    }
-
-    onCheckData () {
-        const onCheck = browser.getHTML('#page-name', false);
-        onCheck.should.equal('review');
+        return '/review/confirm';
     }
 
     clickAccept () {
